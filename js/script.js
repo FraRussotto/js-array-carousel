@@ -2,6 +2,7 @@
 1. Creare l'array contente le immagini
 2. Creo le variabili const querySelector
 3. Inserisco le immagini dall'array al miniWrapper con un ciclo
+4. Inserisco le funzioni del btnDown
 */
 
 
@@ -21,10 +22,20 @@ const imageWrapper = document.querySelector('.image_wrapper');
 const miniWrapper = document.querySelector('.mini_wrapper');
 const btnTop = document.querySelector('.up');
 const btnDown = document.querySelector('.down');
+let counterImg = 0;
 
 //3.
 for(let i = 0; i < archive.length; i++){
   const image = archive[i];
-  miniWrapper.innerHTML += `<div class="tumblr">
+  imageWrapper.innerHTML += `<div class="full d-none">
+  <img src="${image}"></div>`
+  miniWrapper.innerHTML += `<div class="thumbnail">
   <img src="${image}"></div>`
 }
+
+const fullCollection = document.getElementsByClassName('full');
+const thumbnailCollection = document.getElementsByClassName('thumbnail')
+
+fullCollection[counterImg].classList.remove('d-none')
+
+
