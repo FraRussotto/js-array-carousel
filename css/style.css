@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.hide{
+  display: none;
+}
+
 .main_wrapper{
   height: 100vh;
   display: flex;
@@ -58,6 +62,10 @@
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.btn_arrow:hover{
+  cursor: pointer;
 }
 
 .up{
