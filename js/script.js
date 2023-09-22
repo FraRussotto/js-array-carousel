@@ -22,8 +22,8 @@ const imageWrapper = document.querySelector('.image_wrapper');
 const miniWrapper = document.querySelector('.mini_wrapper');
 const btnUp = document.querySelector('.up');
 const btnDown = document.querySelector('.down');
+
 let counterImg = 0;
-console.log(counterImg)
 
 //3.
 for(let i = 0; i < archive.length; i++){
@@ -35,29 +35,34 @@ for(let i = 0; i < archive.length; i++){
 }
 
 const fullCollection = document.getElementsByClassName('full');
-const thumbnailCollection = document.getElementsByClassName('thumbnail')
-
 fullCollection[counterImg].classList.remove('hide')
 
 
-btnUp.addEventListener('click', function(){
-  //a.
+const thumbnailCollection = document.getElementsByClassName('thumbnail');
+thumbnailCollection[counterImg].classList.add('active');
+
+
+btnDown.addEventListener('click', function(){
+
   fullCollection[counterImg].classList.add('hide')
-  // thumbnailCollection[counterImg].classList.remove('active');
-  //b.
+  thumbnailCollection[counterImg].classList.remove('active');
+
   counterImg++;
-  console.log(counterImg);
-  //c.
-  fullCollection[counterImg].classList.remove('hide')
-  // thumbnailCollection[counterImg].classList.add('active');
+
+  if(counterImg === archive.length) counterImg = 0;
+    fullCollection[counterImg].classList.remove('hide')
+    thumbnailCollection[counterImg].classList.add('active');
+});
+
+btnUp.addEventListener('click', function(){
+
+  fullCollection[counterImg].classList.add('hide')
+  thumbnailCollection[counterImg].classList.remove('active');
+
+  counterImg--;
+
+  if(counterImg < 0) counterImg = archive.length - 1;
+    fullCollection[counterImg].classList.remove('hide')
+    thumbnailCollection[counterImg].classList.add('active');
   });
 
-//5.
-btnDown.addEventListener('click', function(){
-  itemsCollection[counterImg].classList.add('hide')
-//   thumbnailCollection[counterImg].classList.remove('active');
-  counterImg--;
-  itemsCollection[counterImg].classList.remove('hide')
-  // thumbnailCollection[counterImg].classList.add('active');
-  
-});
